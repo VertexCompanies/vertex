@@ -3,128 +3,244 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vertex Browser | Rápido y Seguro</title>
-<meta name="description" content="Vertex Browser - Navegador rápido, privado y seguro. Compatible con todos los principales motores de búsqueda.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-<style>
-:root{
-    --primary:#2563eb;
-    --primary-hover:#1e40af;
-    --bg:#0f172a;
-    --card:#1e293b;
-    --text:#ffffff;
-    --subtext:#94a3b8;
-}
+<title>Vertex Browser | Simple. Potente.</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+scroll-behavior:smooth;
 }
 
 body{
-    font-family:'Inter',sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    line-height:1.6;
+background:#000;
+color:#fff;
+overflow-x:hidden;
 }
+
+/* HEADER */
 
 header{
-    padding:80px 20px;
-    text-align:center;
-    background:linear-gradient(180deg,#0f172a 0%, #111827 100%);
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:25px 80px;
+position:fixed;
+width:100%;
+background:rgba(0,0,0,0.85);
+backdrop-filter:blur(8px);
+border-bottom:1px solid #111;
+z-index:1000;
 }
 
-h1{
-    font-size:48px;
-    font-weight:800;
-    margin-bottom:20px;
+.logo{
+font-size:24px;
+font-weight:800;
+letter-spacing:2px;
 }
 
-p.lead{
-    font-size:20px;
-    color:var(--subtext);
-    max-width:600px;
-    margin:0 auto 30px auto;
+nav a{
+color:#888;
+text-decoration:none;
+margin-left:30px;
+font-weight:500;
+transition:0.3s;
 }
 
-.btn{
-    display:inline-block;
-    padding:15px 40px;
-    background:var(--primary);
-    color:white;
-    text-decoration:none;
-    font-weight:600;
-    border-radius:10px;
-    transition:0.3s ease;
+nav a:hover{
+color:#fff;
 }
 
-.btn:hover{
-    background:var(--primary-hover);
-    transform:translateY(-3px);
+/* HERO */
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:0 20px;
 }
 
-.section{
-    padding:80px 20px;
-    text-align:center;
+.hero h1{
+font-size:72px;
+font-weight:800;
+max-width:900px;
+line-height:1.1;
 }
 
-.features, .search-engines{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:30px;
-    margin-top:40px;
+.hero p{
+margin-top:25px;
+font-size:20px;
+color:#aaa;
+max-width:600px;
+}
+
+.buttons{
+margin-top:40px;
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.btn-primary{
+padding:15px 40px;
+border:none;
+border-radius:50px;
+background:#fff;
+color:#000;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+}
+
+.btn-primary:hover{
+background:#ddd;
+transform:scale(1.05);
+}
+
+.btn-secondary{
+padding:15px 40px;
+border-radius:50px;
+border:1px solid #444;
+background:transparent;
+color:#fff;
+cursor:pointer;
+transition:0.3s;
+}
+
+.btn-secondary:hover{
+background:#111;
+}
+
+/* FEATURES */
+
+.features{
+padding:120px 80px;
+text-align:center;
+border-top:1px solid #111;
+}
+
+.features h2{
+font-size:42px;
+margin-bottom:60px;
+}
+
+.feature-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:40px;
 }
 
 .card{
-    background:var(--card);
-    padding:40px 30px;
-    border-radius:20px;
-    max-width:320px;
-    transition:0.3s ease;
-    text-align:center;
+background:#0a0a0a;
+padding:40px;
+border-radius:20px;
+text-align:left;
+transition:0.3s;
+border:1px solid #111;
 }
 
 .card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 15px 30px rgba(0,0,0,0.4);
+transform:translateY(-8px);
+background:#111;
 }
 
 .card h3{
-    margin-bottom:15px;
-    font-size:22px;
+margin-bottom:15px;
+font-size:22px;
 }
 
 .card p{
-    color:var(--subtext);
-    font-size:16px;
+color:#999;
+line-height:1.6;
 }
 
-.card img{
-    width:60px;
-    height:60px;
-    margin-bottom:15px;
+/* SEARCH ENGINES */
+
+.search-engines{
+padding:120px 80px;
+text-align:center;
+border-top:1px solid #111;
 }
+
+.search-engines h2{
+font-size:42px;
+margin-bottom:15px;
+}
+
+.search-engines p{
+color:#888;
+margin-bottom:40px;
+font-size:18px;
+}
+
+.engine-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+gap:30px;
+justify-items:center;
+align-items:center;
+}
+
+.engine{
+background:#0a0a0a;
+padding:25px;
+border-radius:16px;
+border:1px solid #111;
+transition:0.3s;
+width:140px;
+cursor:pointer;
+}
+
+.engine:hover{
+transform:translateY(-8px);
+background:#111;
+}
+
+.engine img{
+width:40px;
+height:40px;
+margin-bottom:12px;
+}
+
+.engine h3{
+font-size:16px;
+color:#fff;
+}
+
+/* FOOTER */
 
 footer{
-    padding:40px 20px;
-    text-align:center;
-    color:var(--subtext);
-    border-top:1px solid #1f2937;
-    margin-top:60px;
+padding:50px;
+text-align:center;
+color:#666;
+border-top:1px solid #111;
+margin-top:100px;
 }
 
+/* RESPONSIVE */
+
 @media(max-width:768px){
-    h1{
-        font-size:36px;
-    }
-    .features, .search-engines{
-        flex-direction:column;
-        align-items:center;
-    }
+
+header{
+padding:20px 30px;
+}
+
+.hero h1{
+font-size:42px;
+}
+
+.features, .search-engines{
+padding:80px 30px;
+}
+
 }
 </style>
 </head>
@@ -132,72 +248,94 @@ footer{
 <body>
 
 <header>
-    <h1>Vertex Browser</h1>
-    <p class="lead">El navegador moderno diseñado para velocidad extrema, privacidad total y máxima seguridad.</p>
-    <a href="#" class="btn">Descargar Ahora</a>
+<div class="logo">VERTEX</div>
+<nav>
+<a href="#">Inicio</a>
+<a href="#features">Características</a>
+<a href="#">Descargar</a>
+<a href="#search">Buscadores</a>
+</nav>
 </header>
 
-<section class="section">
-    <h2>¿Por qué elegir Vertex Browser?</h2>
-    <div class="features">
+<section class="hero">
+<h1>Simple. Potente.<br>Vertex Browser.</h1>
+<p>Un navegador moderno enfocado en velocidad, privacidad y diseño minimalista.</p>
 
-        <div class="card">
-            <h3>⚡ Velocidad Extrema</h3>
-            <p>Carga páginas en milisegundos con un motor optimizado para rendimiento.</p>
-        </div>
-
-        <div class="card">
-            <h3>🔒 Privacidad Total</h3>
-            <p>No rastreamos datos. Tu navegación es completamente privada.</p>
-        </div>
-
-        <div class="card">
-            <h3>🛡 Seguridad Integrada</h3>
-            <p>Protección avanzada contra amenazas y sitios maliciosos.</p>
-        </div>
-
-    </div>
+<div class="buttons">
+<button class="btn-primary">Descargar Ahora</button>
+<button class="btn-secondary">Ver Características</button>
+</div>
 </section>
 
-<section class="section">
-    <h2>Buscadores integrados en Vertex Browser</h2>
-    <div class="search-engines">
+<section class="features" id="features">
+<h2>Diseñado para destacar</h2>
 
-        <div class="card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Google-favicon-2015.png" alt="Google">
-            <h3>Google</h3>
-            <p>Búsqueda rápida y confiable con resultados relevantes.</p>
-        </div>
+<div class="feature-grid">
 
-        <div class="card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Bing_logo_2016.png" alt="Bing">
-            <h3>Bing</h3>
-            <p>Motor de búsqueda de Microsoft con sugerencias inteligentes.</p>
-        </div>
+<div class="card">
+<h3>⚡ Velocidad Real</h3>
+<p>Motor optimizado para ofrecer tiempos de carga rápidos y experiencia fluida.</p>
+</div>
 
-        <div class="card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Ecosia_logo.svg" alt="Ecosia">
-            <h3>Ecosia</h3>
-            <p>Busca y ayuda a plantar árboles mientras navegas.</p>
-        </div>
+<div class="card">
+<h3>🛡 Privacidad Total</h3>
+<p>Bloqueo de rastreadores y protección avanzada contra amenazas digitales.</p>
+</div>
 
-        <div class="card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Yahoo%21_logo.svg" alt="Yahoo">
-            <h3>Yahoo</h3>
-            <p>Resultados clásicos y noticias integradas.</p>
-        </div>
+<div class="card">
+<h3>🎯 Interfaz Clara</h3>
+<p>Diseño minimalista que elimina distracciones y mejora la productividad.</p>
+</div>
 
-        <div class="card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/DuckDuckGo_logo.svg" alt="DuckDuckGo">
-            <h3>DuckDuckGo</h3>
-            <p>Búsqueda privada sin rastreo ni anuncios personalizados.</p>
-        </div>
+<div class="card">
+<h3>🤖 IA Integrada</h3>
+<p>Funciones inteligentes para ayudarte mientras navegas.</p>
+</div>
 
-    </div>
+</div>
+</section>
+
+<section class="search-engines" id="search">
+<h2>Buscadores Integrados</h2>
+<p>Elige tu motor de búsqueda preferido directamente desde Vertex.</p>
+
+<div class="engine-grid">
+
+<div class="engine">
+<img src="https://www.google.com/favicon.ico">
+<h3>Google</h3>
+</div>
+
+<div class="engine">
+<img src="https://www.bing.com/favicon.ico">
+<h3>Bing</h3>
+</div>
+
+<div class="engine">
+<img src="https://duckduckgo.com/favicon.ico">
+<h3>DuckDuckGo</h3>
+</div>
+
+<div class="engine">
+<img src="https://search.yahoo.com/favicon.ico">
+<h3>Yahoo</h3>
+</div>
+
+<div class="engine">
+<img src="https://www.ecosia.org/favicon.ico">
+<h3>Ecosia</h3>
+</div>
+
+<div class="engine">
+<img src="https://www.qwant.com/favicon.ico">
+<h3>Qwant</h3>
+</div>
+
+</div>
 </section>
 
 <footer>
-    © 2026 Vertex Browser. Todos los derechos reservados.
+© 2026 Vertex Browser. Todos los derechos reservados.
 </footer>
 
 </body>
